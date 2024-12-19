@@ -3,17 +3,14 @@ import axios from "axios";
 import { DashboardState } from "../../utils/types/dashboard";
 
 const initialState: DashboardState = {
+  users: [],
   cards: [],
   transactions: [],
-  weeklyActivity: { deposit: [], withdraw: [] },
-  expenseStatistics: {
-    entertainment: 0,
-    billExpenses: 0,
-    investment: 0,
-    others: 0,
-  },
+  weeklyActivity: [],
+  expenseStatistics: [],
   balanceHistory: [],
-  loading: false,
+  frequentTransfers: [],
+  loading: true,
 };
 
 export const fetchDashboardData = createAsyncThunk(
@@ -37,11 +34,13 @@ const dashboardSlice = createSlice({
         fetchDashboardData.fulfilled,
         (state, action: PayloadAction<DashboardState>) => {
           state.loading = false;
+          state.users = action.payload.users;
           state.cards = action.payload.cards;
           state.transactions = action.payload.transactions;
           state.weeklyActivity = action.payload.weeklyActivity;
           state.expenseStatistics = action.payload.expenseStatistics;
           state.balanceHistory = action.payload.balanceHistory;
+          state.frequentTransfers = action.payload.frequentTransfers;
         }
       )
       .addCase(fetchDashboardData.rejected, (state) => {

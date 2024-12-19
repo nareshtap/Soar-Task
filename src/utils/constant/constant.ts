@@ -6,6 +6,6 @@ export const routes = [
   { link: "/credit-cards", name: "Credit Cards" },
   { link: "/loans", name: "Loans" },
   { link: "/services", name: "Services" },
-  { link: "/my-priviliges", name: "My Priviligies" },
+  { link: "/my-privilieges", name: "My Priviligies" },
   { link: "/settings", name: "Settings" },
 ];

@@ -1,0 +1,166 @@
+{
+  "dashboard": {
+    "users": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "johndoe@example.com",
+        "dob": "1990-05-15",
+        "presentAddress": "123 Main St, Springfield",
+        "permanentAddress": "456 Elm St, Springfield",
+        "city": "Springfield",
+        "postalCode": "12345",
+        "country": "USA",
+        "profilePicture": "https://example.com/images/johndoe.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "username": "janesmith",
+        "email": "janesmith@example.com",
+        "dob": "1992-08-20",
+        "presentAddress": "789 Oak St, Lincoln",
+        "permanentAddress": "101 Pine St, Lincoln",
+        "city": "Lincoln",
+        "postalCode": "67890",
+        "country": "USA",
+        "profilePicture": "https://example.com/images/janesmith.jpg"
+      }
+    ],
+    "cards": [
+      {
+        "id": 1,
+        "userId": 1,
+        "cardHolder": "John Doe",
+        "cardNumber": "1234 5678 9012 3456",
+        "balance": 4500.75,
+        "type": "Credit Card"
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "cardHolder": "John Doe",
+        "cardNumber": "9876 5432 1098 7654",
+        "balance": 3200.5,
+        "type": "Debit Card"
+      },
+      {
+        "id": 3,
+        "userId": 2,
+        "cardHolder": "Jane Smith",
+        "cardNumber": "5555 4444 3333 2222",
+        "balance": 5200.0,
+        "type": "Credit Card"
+      },
+      {
+        "id": 4,
+        "userId": 2,
+        "cardHolder": "Jane Smith",
+        "cardNumber": "6666 7777 8888 9999",
+        "balance": 2800.25,
+        "type": "Debit Card"
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "userId": 1,
+        "icon": "shopping-cart",
+        "description": "Grocery Store",
+        "date": "2024-12-15",
+        "amount": 75.32,
+        "type": "Expense"
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "icon": "money-bill",
+        "description": "Salary Deposit",
+        "date": "2024-12-01",
+        "amount": 5000.0,
+        "type": "Income"
+      },
+      {
+        "id": 3,
+        "userId": 1,
+        "icon": "utensils",
+        "description": "Restaurant",
+        "date": "2024-12-10",
+        "amount": 45.67,
+        "type": "Expense"
+      },
+      {
+        "id": 4,
+        "userId": 2,
+        "icon": "shopping-cart",
+        "description": "Electronics Purchase",
+        "date": "2024-12-12",
+        "amount": 350.25,
+        "type": "Expense"
+      },
+      {
+        "id": 5,
+        "userId": 2,
+        "icon": "money-bill",
+        "description": "Freelance Payment",
+        "date": "2024-12-05",
+        "amount": 1200.0,
+        "type": "Income"
+      }
+    ],
+    "weeklyActivity": [
+      { "day": "Monday", "deposit": 1000, "withdrawal": 200 },
+      { "day": "Tuesday", "deposit": 800, "withdrawal": 100 },
+      { "day": "Wednesday", "deposit": 1500, "withdrawal": 300 },
+      { "day": "Thursday", "deposit": 500, "withdrawal": 150 },
+      { "day": "Friday", "deposit": 700, "withdrawal": 250 },
+      { "day": "Saturday", "deposit": 1200, "withdrawal": 400 },
+      { "day": "Sunday", "deposit": 0, "withdrawal": 50 }
+    ],
+    "expenseStatistics": [
+      { "category": "Entertainment", "amount": 450 },
+      { "category": "Bills", "amount": 600 },
+      { "category": "Groceries", "amount": 300 },
+      { "category": "Dining Out", "amount": 150 },
+      { "category": "Savings", "amount": 200 }
+    ],
+    "balanceHistory": [
+      { "month": "January", "balance": 4000 },
+      { "month": "February", "balance": 4500 },
+      { "month": "March", "balance": 5000 },
+      { "month": "April", "balance": 4700 },
+      { "month": "May", "balance": 4900 },
+      { "month": "June", "balance": 5100 },
+      { "month": "July", "balance": 5300 },
+      { "month": "August", "balance": 5500 },
+      { "month": "September", "balance": 5400 },
+      { "month": "October", "balance": 5600 },
+      { "month": "November", "balance": 5800 },
+      { "month": "December", "balance": 6000 }
+    ],
+    "frequentTransfers": [
+      {
+        "id": 1,
+        "userId": 1,
+        "name": "Alice Johnson",
+        "role": "Colleague",
+        "profilePicture": "https://example.com/images/alice.jpg"
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "name": "Bob Smith",
+        "role": "Friend",
+        "profilePicture": "https://example.com/images/bob.jpg"
+      },
+      {
+        "id": 3,
+        "userId": 2,
+        "name": "Charlie Brown",
+        "role": "Family",
+        "profilePicture": "https://example.com/images/charlie.jpg"
+      }
+    ]
+  }
+}
