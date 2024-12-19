@@ -11,6 +11,7 @@ export interface DashboardState {
     postalCode: string;
     country: string;
     profilePicture: string;
+    password: string;
   }>;
   cards: Array<{
     id: number;

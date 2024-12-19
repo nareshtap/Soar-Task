@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { routes } from '../../utils/constant/constant';
 
 
@@ -10,9 +10,15 @@ const SideBar = () => {
         <ul className="space-y-4">
           {routes.map((route, index) => (
             <li key={index}>
-              <Link to={route.link} className="block hover:bg-gray-700 p-2 rounded">
+              <NavLink
+                to={route.link}
+                className={({ isActive }) =>
+                  `block p-2 rounded ${isActive ? 'bg-blue-500 font-bold' : 'hover:bg-gray-700'
+                  }`
+                }
+              >
                 {route.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
