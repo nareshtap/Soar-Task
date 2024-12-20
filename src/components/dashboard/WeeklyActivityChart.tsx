@@ -16,7 +16,7 @@ interface WeeklyActivityDataProps {
 
 const WeeklyActivityChart: React.FC<WeeklyActivityDataProps> = React.memo(({ data: weeklyActivity }) => {
 
-  
+
     const chartData = useMemo(() => ({
         labels: weeklyActivity.map((item) => item.day),
         datasets: [
@@ -47,8 +47,7 @@ const WeeklyActivityChart: React.FC<WeeklyActivityDataProps> = React.memo(({ dat
     }), []);
 
     return (
-        <div>
-            <h2>Weekly Activity</h2>
+        <div className="bg-white rounded-3xl p-[18px] md:p-6">
             <Bar data={chartData} options={options} />
         </div>
     );

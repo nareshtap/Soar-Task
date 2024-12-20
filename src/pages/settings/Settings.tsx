@@ -22,7 +22,7 @@ const Settings = () => {
   }, [dispatch]);
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto p-[18px] md:p-6">
       <h1 className="text-2xl font-bold mb-4">Settings</h1>
       <TabNavigation
         tabs={tabs}

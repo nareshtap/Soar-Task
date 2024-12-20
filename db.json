@@ -41,7 +41,7 @@
         "icon": "shopping-cart",
         "description": "Grocery Store",
         "date": "2024-12-15",
-        "amount": 75.32,
+        "amount": -75.32,
         "type": "Expense"
       },
       {

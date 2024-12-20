@@ -32,8 +32,7 @@ const ExpenseStatisticsChart: React.FC<ExpenseStatisticsDataProps> = React.memo(
     }), []);
 
     return (
-        <div>
-
+        <div className="w-full bg-white rounded-3xl p-[18px] lg:p-6 h-full">
             <Pie data={chartData} options={options} />
         </div>
     );

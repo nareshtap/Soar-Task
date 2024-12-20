@@ -46,7 +46,11 @@ const BalanceHistoryChart: React.FC<BalanceHistoryChartProps> = React.memo(({ da
         },
     }), []);
 
-    return <Line data={chartData} options={options} />;
+    return (
+        <div className="bg-white rounded-3xl p-[18px] lg:p-6 ">
+            <Line data={chartData} options={options} />
+        </div>
+    );
 });
 
 export default BalanceHistoryChart;

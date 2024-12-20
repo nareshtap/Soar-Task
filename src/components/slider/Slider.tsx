@@ -1,46 +1,70 @@
-import React, { useState } from 'react';
 
-interface SliderProps<T> {
-    items: T[];
-    renderItem: (item: T) => React.ReactNode;
-    itemsToShow: number; // Number of items to show at once
+import React from 'react';
+import Slider from 'react-slick';
+
+interface FrequentTransferUser {
+    id: number;
+    userId: number;
+    name: string;
+    role: string;
+    profilePicture: string;
 }
 
-const Slider = <T,>({ items, renderItem, itemsToShow }: SliderProps<T>) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+interface UserSliderProps {
+    users: FrequentTransferUser[];
+}
 
-    const nextItem = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex + itemsToShow < items.length ? prevIndex + itemsToShow : 0
-        );
-    };
-
-    const prevItem = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex - itemsToShow >= 0 ? prevIndex - itemsToShow : items.length - itemsToShow
-        );
+const UserSlider: React.FC<UserSliderProps> = ({ users }) => {
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     return (
-        <div className="flex flex-col items-center">
-            <div className="flex items-center space-x-4">
-                <button onClick={prevItem} className="p-2 bg-gray-300 rounded">
-                    &lt;
-                </button>
-                <div className="flex space-x-4 overflow-hidden">
-                    {items.slice(currentIndex, currentIndex + itemsToShow).map((item, index) => (
-                        <div key={index} className="flex-shrink-0">
-                            {renderItem(item)}
-                        </div>
-                    ))}
-                </div>
-                <button onClick={nextItem} className="p-2 bg-gray-300 rounded">
-                    &gt;
-                </button>
-            </div>
+        <div className="max-w-2xl mx-auto">
+            <Slider {...settings}>
+                {users.map((user) => (
+                    <div key={user.id} className="flex flex-col items-center p-4">
+                        <img
+                            src={user.profilePicture}
+                            alt={user.name}
+                            className="w-24 h-24 rounded-full object-cover mb-2"
+                        />
+                        <p className="text-lg font-medium text-gray-700">{user.name}</p>
+                        <p className="text-sm text-gray-500">{user.role}</p>
+                    </div>
+                ))}
+            </Slider>
         </div>
     );
 };
 
-export default Slider;
-
+export default UserSlider;

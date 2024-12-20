@@ -16,6 +16,7 @@ const Dashboard = () => {
 
     const memoizedState = useMemo(() => state, [state]);
 
+
     useEffect(() => {
         dispatch(fetchDashboardData());
     }, [dispatch]);
@@ -30,21 +31,30 @@ const Dashboard = () => {
     const hasExpenseStatistics = memoizedState?.expenseStatistics && memoizedState?.expenseStatistics.length > 0;
 
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {hasBalanceHistory && (
-                    <div className="col-span-2">
-                        <h2 className="text-lg font-semibold mb-2">Balance History</h2>
-                        <Suspense fallback={<div>Loading chart...</div>}>
-                            <BalanceHistoryChart data={memoizedState?.balanceHistory} />
-                        </Suspense>
+        <div className='flex flex-col gap-5 lg:gap-10 '>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-[30px] '>
+                <div className='flex flex-col gap-[20px] col-span-1 lg:col-span-2   '>
+                    <div className='flex justify-between items-center'>
+                        <h5 className='text-[#343C6A] text-[22px] leading-[28px] font-semibold'>My Cards</h5>
+                        <h6 className='text-[#343C6A] text-base font-semibold'>See All</h6>
                     </div>
-                )}
-
+                    <div className='flex gap-[30px] overflow-auto'>
+                        <Card balance='5756' cardHolder='Eddy Cusuma' validThru='12/22' cardNumber='3778 **** **** 1234' />
+                        <Card balance='5756' cardHolder='Eddy Cusuma' validThru='12/22' cardNumber='3778 **** **** 1234' isWhite={true} />
+                    </div>
+                </div>
+                <div className='flex flex-col gap-[20px]'>
+                    <div className='flex justify-start items-center'>
+                        <h5 className='text-[#343C6A] text-[22px] leading-[28px] font-semibold'>Recent Transaction</h5>
+                    </div>
+                    <RecentTransaction requestTransaction={memoizedState?.transactions} />
+                </div>
+            </div>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-[30px]'>
+                {/* <div className="flex flex-row w-full h-full gap-8 col-span-2"> */}
                 {hasWeeklyActivity && (
-                    <div>
-                        <h2 className="text-lg font-semibold mb-2">Weekly Activity</h2>
+                    <div className='w-full h-full flex flex-col  col-span-2 gap-[18px]'>
+                        <h2 className="text-[22px] leading-7 font-semibold ">Weekly Activity</h2>
                         <Suspense fallback={<div>Loading chart...</div>}>
                             <WeeklyActivityChart data={memoizedState?.weeklyActivity} />
                         </Suspense>
@@ -52,16 +62,35 @@ const Dashboard = () => {
                 )}
 
                 {hasExpenseStatistics && (
-                    <div>
-                        <h2 className="text-lg font-semibold mb-2">Expense Statistics</h2>
+                    <div className='w-full h-full flex flex-col gap-[18px]'>
+                        <h2 className="text-[22px] leading-7 font-semibold ">Expense Statistics</h2>
                         <Suspense fallback={<div>Loading chart...</div>}>
                             <ExpenseStatisticsChart data={memoizedState?.expenseStatistics} />
                         </Suspense>
                     </div>
                 )}
-                <Card />
-                <RecentTransaction />
-                <QuickTransfer frequentTransfers={memoizedState?.frequentTransfers} />
+                {/* </div>   */}
+
+            </div>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-[30px]'>
+                <div className="w-full h-full flex flex-col gap-[18px]  ">
+                    <h2 className="text-[22px] leading-7 font-semibold ">Quick Transfer</h2>
+                    <QuickTransfer frequentTransfers={memoizedState?.frequentTransfers} />
+                </div>
+                {hasBalanceHistory && (
+
+                    <div className="w-full h-full flex flex-col gap-[18px]">
+                        <h2 className="text-lg font-semibold mb-2">Balance History</h2>
+                        <Suspense fallback={<div>Loading chart...</div>}>
+                            <BalanceHistoryChart data={memoizedState?.balanceHistory} />
+                        </Suspense>
+                    </div>
+
+                )}
+
+
+
+
 
 
 
@@ -69,7 +98,8 @@ const Dashboard = () => {
                 {!hasWeeklyActivity && <p>No Weekly Activity Data Available</p>}
                 {!hasExpenseStatistics && <p>No Expense Statistics Data Available</p>}
             </div>
-        </div>
+
+        </div >
 
 
     );
