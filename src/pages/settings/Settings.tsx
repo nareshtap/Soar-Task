@@ -22,14 +22,13 @@ const Settings = () => {
   }, [dispatch]);
 
   return (
-    <div className="max-w-4xl mx-auto p-[18px] md:p-6">
-      <h1 className="text-2xl font-bold mb-4">Settings</h1>
+    <div className=" p-5 lg:p-8 bg-[#fff] rounded-[25px]">
       <TabNavigation
         tabs={tabs}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
-      <div className="mt-4">
+      <div className="mt-[41px]">
         <Suspense fallback={<div>Loading...</div>}>
           {activeTab === 'Edit Profile' && memoizedState.users[0] && (
             <EditProfileForm userData={memoizedState.users[0]} />

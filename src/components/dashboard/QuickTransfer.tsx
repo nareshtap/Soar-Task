@@ -24,7 +24,7 @@ const QuickTransfer: React.FC<QuickTransferProps> = ({ frequentTransfers }) => {
     };
 
     return (
-        <div className="App h-full justify-center flex-col bg-white p-[18px] lg:p-6 rounded-3xl flex items-center">
+        <div className="App h-full justify-center flex-col bg-white p-[18px] lg:p-6 rounded-3xl flex items-center overflow-hidden">
             <UserSlider users={frequentTransfers} />
             <div className="mt-4 flex justify-between items-center gap-4">
                 <p className='text-sm md:text-md text-gray-400 flex-1 md:flex-none whitespace-pre'>Write Amount</p>

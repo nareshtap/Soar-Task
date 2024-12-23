@@ -22,8 +22,8 @@ const InputField: React.FC<InputFieldProps> = ({
     placeholder,
     error,
 }) => (
-    <div className="relative">
-        <label className="block text-sm font-medium text-gray-700">{label}</label>
+    <div className="relative flex flex-col gap-2 md:gap-3">
+        <label className="block text-[13px] font-normal md:text-base md:font-medium text-[#232323]">{label}</label>
         <Tippy content={error || ''} visible={!!error} placement="right" arrow={true}>
             <input
                 type={type}
@@ -31,11 +31,11 @@ const InputField: React.FC<InputFieldProps> = ({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className={`mt-1 block w-full rounded-md border ${error ? 'border-red-500' : 'border-gray-300'
-                    } shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+                className={`flex py-3 md:py-[14px] px-5 box-border placeholder:text-[#718EBF] w-full rounded-2xl border ${error ? 'border-red-500' : 'border-[#DFEAF2]'
+                    } shadow-sm focus:ring-[#232323] focus:border-[#232323] text-xs sm:text-sm`}
             />
         </Tippy>
-        {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+        {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
     </div>
 );
 

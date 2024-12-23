@@ -38,7 +38,7 @@ const Dashboard = () => {
                         <h5 className='text-[#343C6A] text-[22px] leading-[28px] font-semibold'>My Cards</h5>
                         <h6 className='text-[#343C6A] text-base font-semibold'>See All</h6>
                     </div>
-                    <div className='flex gap-[30px] overflow-auto'>
+                    <div className='flex gap-5 md:gap-[30px] overflow-auto'>
                         <Card balance='5756' cardHolder='Eddy Cusuma' validThru='12/22' cardNumber='3778 **** **** 1234' />
                         <Card balance='5756' cardHolder='Eddy Cusuma' validThru='12/22' cardNumber='3778 **** **** 1234' isWhite={true} />
                     </div>
@@ -55,7 +55,7 @@ const Dashboard = () => {
                 {hasWeeklyActivity && (
                     <div className='w-full h-full flex flex-col  col-span-2 gap-[18px]'>
                         <h2 className="text-[22px] leading-7 font-semibold ">Weekly Activity</h2>
-                        <Suspense fallback={<div>Loading chart...</div>}>
+                        <Suspense fallback={<div>Loading chart...</div>}>max-w-[282px]
                             <WeeklyActivityChart data={memoizedState?.weeklyActivity} />
                         </Suspense>
                     </div>

@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
   }
   return (
 
-    <div className="w-full h-fit lg:h-[100px] lg:flex-row flex-col bg-white border-b border-[#E6EFF5] justify-between flex items-center px-10 py-5 ">
+    <div className="w-full h-fit lg:h-[100px] lg:flex-row flex-col bg-white border-b border-[#E6EFF5] justify-between flex items-center px-6 py-6 gap-5 md:gap-0 md:px-10 md:py-5 ">
       <div className="w-full flex justify-between">
         <div className="flex lg:hidden">
           <button onClick={handleOpen}>
@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
         </div>
       </div>
 
-      <div className="flex lg:hidden relative bg-[#F5F7FA] rounded-3xl">
+      <div className="flex lg:hidden relative bg-[#F5F7FA] rounded-3xl w-full md:w-fit">
         <input
           type="text"
           placeholder="Search for something"

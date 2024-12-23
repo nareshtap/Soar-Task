@@ -4,8 +4,8 @@ import Logo from '../../../public/assets/logo_icon.svg'
 
 const SideBar = ({ showMenu }: { showMenu: boolean }) => {
   return (
-    <div className={`max-w-64 min-w-64 w-full h-full bg-white text-white flex-1 ${!showMenu && 'hidden'} lg:flex flex-col border-r border-[#E6EFF5]`}>
-      <h1 className="text-2xl flex gap-[10px] h-[100px] justify-center items-center font-semibold text-[#343C6A] border-[#E6EFF5] border-b">
+    <div className={`max-w-64 min-w-64 w-full h-full flex !flex-col bg-white text-white flex-1 ${!showMenu && ' hidden'} lg:flex lg:relative lg:left-[none] z-[999] fixed left-0 flex-col border-r border-[#E6EFF5]`}>
+      <h1 className="text-2xl flex gap-[10px] h-auto py-4 md:py-0 md:h-[100px] justify-center items-center font-semibold text-[#343C6A] border-[#E6EFF5] border-b">
         <img src={Logo} alt="" />
         Soar Task
       </h1>
