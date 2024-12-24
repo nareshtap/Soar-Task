@@ -22,7 +22,7 @@ const RecentTransaction: React.FC<RecentTransactionProps> = ({ requestTransactio
             <div className="flex flex-col gap-[10px]">
                 {
                     requestTransaction?.length > 0 && requestTransaction?.map((transaction) => (
-                        <div className='flex justify-between'>
+                        <div className='flex justify-between' key={transaction?.id}>
 
                             <div className="flex flex-row items-center justify-start gap-4">
                                 <div className={`rounded-full border p-3 flex items-center justify-center ${svgData?.find((e) => e.name === transaction?.icon)?.color} text-yellow-600`}>

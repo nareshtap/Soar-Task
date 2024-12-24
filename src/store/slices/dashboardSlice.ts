@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { DashboardState } from "../../utils/types/dashboard";
+import axiosInstance from "../../utils/axiosInstance/axiosInstance";
 
 const initialState: DashboardState = {
   users: [],
@@ -16,7 +16,7 @@ const initialState: DashboardState = {
 export const fetchDashboardData = createAsyncThunk(
   "dashboard/fetchData",
   async () => {
-    const response = await axios.get("http://localhost:3001/dashboard");
+    const response = await axiosInstance.get(`/dashboard`);
     return response.data;
   }
 );
