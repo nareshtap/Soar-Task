@@ -1,5 +1,7 @@
 
 import { ImCross } from "react-icons/im";
+import { useLocation } from "react-router-dom";
+
 
 interface HeaderProps {
   setShowMenu: (show: boolean) => void; // Correct type for the setShowMenu prop
@@ -8,9 +10,36 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
 
+  const location = useLocation();
+
   const handleOpen = () => {
     setShowMenu(!showMenu)
   }
+
+  const getPageTitle = () => {
+    switch (location.pathname) {
+      case "/transactions":
+        return "Transactions";
+      case "/overview":
+        return "Overview";
+      case "/settings":
+        return "Settings";
+      case "/accounts":
+        return "Accounts";
+      case "/investments":
+        return "Investments";
+      case "/credit-cards":
+        return "Credit Cards";
+      case "/loans":
+        return "Loans";
+      case "/services":
+        return "Services";
+      case "/my-privilieges":
+        return "My Privilieges";
+      default:
+        return "Dashboard";
+    }
+  };
   return (
 
     <div className="w-full h-fit lg:h-[100px] lg:flex-row flex-col bg-white border-b border-[#E6EFF5] justify-between flex items-center px-6 py-6 gap-5 md:gap-0 md:px-10 md:py-5 ">
@@ -29,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
           </button>
 
         </div>
-        <h5 className="text-[#343C6A] flex items-center text-center lg:mr-auto text-[28px] leading-[33px] font-bold">Overview</h5>
+        <h5 className="text-[#343C6A] flex items-center text-center lg:mr-auto text-[28px] leading-[33px] font-bold"> {getPageTitle()}</h5>
         <div className=" hidden lg:flex items-center gap-[30px]">
           <div className="hidden lg:flex relative bg-[#F5F7FA] rounded-3xl">
             <input
