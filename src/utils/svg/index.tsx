@@ -1,5 +1,3 @@
-import React from "react";
-
 interface svgType {
   name: string;
   icon: JSX.Element;
