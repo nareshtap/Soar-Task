@@ -34,7 +34,7 @@ const RecentTransaction: React.FC<RecentTransactionProps> = ({ requestTransactio
                                 </div>
                             </div>
                             <div className='flex items-center'>
-                                <p className={`font-bold ${transaction?.amount > 0 ? 'text-green-600' : 'text-red-600'} flex items-center`}>{transaction?.amount > 0 && "+"} {transaction?.amount}</p>
+                                <p className={`font-bold ${transaction?.amount > 0 ? 'text-green-600' : 'text-red-600'} flex items-center`}>{transaction?.amount > 0 && "+$"} {transaction?.amount}</p>
                             </div>
                         </div>
 

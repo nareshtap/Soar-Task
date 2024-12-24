@@ -68,7 +68,7 @@ const BalanceHistoryChart: React.FC<LineChartProps> = ({ data }) => {
     };
 
     return (
-        <div >
+        <div className=' rounded-lg md:rounded-3xl bg-white overflow-hidden p-4 md:p-8'>
             <HighchartsReact highcharts={Highcharts} options={options} />
         </div>
     );

@@ -50,7 +50,7 @@ const ExpenseStatisticsChart: React.FC<PieChartProps> = ({ data, colors }) => {
     };
 
     return (
-        <div>
+        <div className="p-4 md:py-7 md:px-8 rounded-lg md:rounded-3xl bg-white overflow-hidden">
             <HighchartsReact highcharts={Highcharts} options={options} />
         </div>
     );
