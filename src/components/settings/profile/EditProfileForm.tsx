@@ -20,8 +20,10 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
             newErrors.email = 'Please enter a valid email address.';
         }
 
-        if (!formData.password || formData.password.length < 8) {
-            newErrors.password = 'Password must be at least 8 characters long.';
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+        if (!formData.password || !passwordRegex.test(formData.password)) {
+            newErrors.password =
+                'Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.';
         }
 
         if (!formData.name) {

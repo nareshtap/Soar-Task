@@ -33,7 +33,7 @@ const Dashboard = () => {
 
     return (
         <div className='flex flex-col gap-5 lg:gap-10 '>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-[30px] '>
+            <div className='grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-[30px] '>
                 <div className='flex flex-col gap-[20px] col-span-1 lg:col-span-2   '>
                     <div className='flex justify-between items-center'>
                         <h5 className='text-[#343C6A] text-[22px] leading-[28px] font-semibold'>My Cards</h5>
@@ -51,7 +51,7 @@ const Dashboard = () => {
                     <RecentTransaction requestTransaction={memoizedState?.transactions} />
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-[30px]'>
+            <div className='grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-[30px]'>
                 {/* <div className="flex flex-row w-full h-full gap-8 col-span-2"> */}
                 {hasWeeklyActivity && (
                     <div className='w-full h-full flex flex-col  col-span-2 gap-[18px]'>
@@ -72,7 +72,7 @@ const Dashboard = () => {
                 {/* </div>   */}
 
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-[30px]'>
+            <div className='grid grid-cols-1 xl:grid-cols-2 gap-5 xl:gap-[30px]'>
                 <div className="w-full h-full flex flex-col gap-[18px]  ">
                     <h2 className="text-[22px] leading-7 font-semibold ">Quick Transfer</h2>
                     <QuickTransfer frequentTransfers={memoizedState?.frequentTransfers} />
@@ -80,7 +80,7 @@ const Dashboard = () => {
                 {hasBalanceHistory && (
 
                     <div className="w-full h-full flex flex-col gap-[18px]">
-                        <h2 className="text-lg font-semibold mb-2">Balance History</h2>
+                        <h2 className="text-lg font-semibold ">Balance History</h2>
                         <Suspense fallback={<div>Loading chart...</div>}>
                             <BalanceHistoryChart data={memoizedState?.balanceHistory} />
                         </Suspense>
