@@ -5,10 +5,11 @@ import { RootState, AppDispatch } from '../../store';
 import Card from '../../components/dashboard/Card';
 import RecentTransaction from '../../components/dashboard/RecentTransaction';
 import QuickTransfer from '../../components/dashboard/QuickTransfer';
+import { expenseStatisticsColors } from '../../utils/constant/constant';
 
-const ExpenseStatisticsChart = lazy(() => import('../../components/dashboard/ExpenseStatisticsChart'));
-const BalanceHistoryChart = lazy(() => import('../../components/dashboard/BalanceHistoryChart'));
-const WeeklyActivityChart = lazy(() => import('../../components/dashboard/WeeklyActivityChart'));
+const ExpenseStatisticsChart = lazy(() => import('../../components/chart/ExpenseStatisticsChart'));
+const BalanceHistoryChart = lazy(() => import('../../components/chart/BalanceHistoryChart'));
+const WeeklyActivityChart = lazy(() => import('../../components/chart/WeeklyActivityChart'));
 
 const Dashboard = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -55,17 +56,16 @@ const Dashboard = () => {
                 {hasWeeklyActivity && (
                     <div className='w-full h-full flex flex-col  col-span-2 gap-[18px]'>
                         <h2 className="text-[22px] leading-7 font-semibold ">Weekly Activity</h2>
-                        <Suspense fallback={<div>Loading chart...</div>}>max-w-[282px]
+                        <Suspense fallback={<div>Loading chart...</div>}>
                             <WeeklyActivityChart data={memoizedState?.weeklyActivity} />
                         </Suspense>
                     </div>
                 )}
-
                 {hasExpenseStatistics && (
                     <div className='w-full h-full flex flex-col gap-[18px]'>
                         <h2 className="text-[22px] leading-7 font-semibold ">Expense Statistics</h2>
                         <Suspense fallback={<div>Loading chart...</div>}>
-                            <ExpenseStatisticsChart data={memoizedState?.expenseStatistics} />
+                            <ExpenseStatisticsChart data={memoizedState?.expenseStatistics} colors={expenseStatisticsColors} />
                         </Suspense>
                     </div>
                 )}
