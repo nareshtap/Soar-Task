@@ -11,7 +11,7 @@ const Layout = () => {
   return (
     <div className="flex h-full md:h-screen">
       <SideBar showMenu={showMenu} setShowMenu={setShowMenu} />
-      <div className="flex-1 flex flex-col h-full">
+      <div className="flex-1 flex flex-col h-full w-full">
         <Header setShowMenu={setShowMenu} showMenu={showMenu} />
         <div className="p-6 xl:py-[30px] xl:px-[40px] flex-none xl:flex-1 overflow-visible xl:overflow-auto bg-[#F5F7FA]">
           <Outlet />

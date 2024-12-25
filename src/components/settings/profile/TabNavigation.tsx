@@ -11,7 +11,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
     activeTab,
     onTabChange,
 }) => (
-    <div className="flex border-b mb-4">
+    <div className="flex border-b mb-4 overflow-auto whitespace-pre">
         {tabs.map((tab) => (
             <button
                 key={tab}
