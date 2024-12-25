@@ -1,9 +1,11 @@
+import PageLayout from "../../components/layout/PageLayout";
+
 const Loans = () => {
     return (
 
-        <div className="w-full h-16 bg-gray-200 flex items-center px-4 shadow">
+        <PageLayout title="Loans">
             Loans comming soon...
-        </div>
+        </PageLayout>
 
     );
 };

@@ -23,7 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({
     error,
 }) => (
     <div className="relative flex flex-col gap-2 md:gap-3">
-        <label className="block text-[13px] font-normal md:text-base md:font-medium text-[#232323]">{label}</label>
+        <label className="block text-[13px] font-normal md:text-base  text-[#232323]">{label}</label>
         <Tippy content={error || ''} visible={!!error} placement="right" arrow={true}>
             <input
                 type={type}

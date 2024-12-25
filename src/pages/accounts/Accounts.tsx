@@ -1,9 +1,11 @@
+import PageLayout from "../../components/layout/PageLayout";
+
 const Accounts = () => {
     return (
 
-        <div className="w-full h-16 bg-gray-200 flex items-center px-4 shadow">
+        <PageLayout title="Accounts">
             Accounts comming soon...
-        </div>
+        </PageLayout>
 
     );
 };
