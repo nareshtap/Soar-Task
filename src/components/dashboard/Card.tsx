@@ -1,5 +1,4 @@
 import React from 'react';
-// import Card from '../../../public/assets/master.svg';
 interface CardProps {
     balance: string;
     cardHolder: string;
@@ -39,7 +38,6 @@ const Card: React.FC<CardProps> = ({ balance, cardHolder, validThru, cardNumber,
                         <circle cx="29" cy="15" r="15" fill="white" fill-opacity="0.5" />
                     </svg>
 
-                    {/* <img className='w-[44px]' src="{Card}" alt="" /> */}
                 </div>
             </div>
         </div>

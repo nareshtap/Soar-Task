@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import UserCard from './UserCard';
 import UserSlider from '../slider/Slider';
 
 interface FrequentTransfer {
@@ -9,7 +8,6 @@ interface FrequentTransfer {
     role: string;
     profilePicture: string;
 }
-
 
 interface QuickTransferProps {
     frequentTransfers: FrequentTransfer[];

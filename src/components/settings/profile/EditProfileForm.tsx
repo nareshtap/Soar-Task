@@ -19,32 +19,39 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
         const isFormChanged = Object.keys(formData).some(
             (key) => formData[key as keyof User] !== initialFormData.current[key as keyof User]
         );
-        setIsChanged(isFormChanged);
-    }, [formData]);
+        const hasErrors = Object.values(errors).some((error) => error !== '');
+        setIsChanged(isFormChanged && !hasErrors);
+    }, [formData, errors]);
 
-    const validate = (): boolean => {
-        const newErrors: Record<string, string> = {};
-
-        if (!formData.email || !/^\S+@\S+\.\S+$/.test(formData.email)) {
-            newErrors.email = 'Please enter a valid email address.';
+    const validateField = (name: string, value: string): string => {
+        switch (name) {
+            case 'email':
+                if (!value || !/^\S+@\S+\.\S+$/.test(value)) {
+                    return 'Please enter a valid email address.';
+                }
+                break;
+            case 'password':
+                {
+                    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+                    if (!value || !passwordRegex.test(value)) {
+                        return 'Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.';
+                    }
+                    break;
+                }
+            case 'name':
+                if (!value.trim()) {
+                    return 'Name is required.';
+                }
+                break;
+            case 'username':
+                if (!value.trim()) {
+                    return 'Username is required.';
+                }
+                break;
+            default:
+                break;
         }
-
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-        if (!formData.password || !passwordRegex.test(formData.password)) {
-            newErrors.password =
-                'Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.';
-        }
-
-        if (!formData.name.trim()) {
-            newErrors.name = 'Name is required.';
-        }
-
-        if (!formData.username.trim()) {
-            newErrors.username = 'Username is required.';
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        return '';
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,14 +62,25 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
             [name]: value,
         }));
 
+        const errorMessage = validateField(name, value);
         setErrors((prev) => ({
             ...prev,
-            [name]: '',
+            [name]: errorMessage,
         }));
     };
 
+    const validateForm = (): boolean => {
+        const newErrors: Record<string, string> = {};
+        Object.keys(formData).forEach((key) => {
+            const error = validateField(key, formData[key as keyof User] as string);
+            if (error) newErrors[key] = error;
+        });
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleSave = () => {
-        if (validate()) {
+        if (validateForm()) {
             toast.success('Profile updated successfully!', {
                 autoClose: 1000,
             });
@@ -89,9 +107,7 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
                     />
                 </div>
                 <div className='flex flex-col gap-4 md:gap-10 w-full'>
-
                     <div className='grid grid-cols-1 md:grid-cols-2 md:gap-y-[22px] gap-x-0 gap-y-4 md:gap-x-7'>
-
                         <InputField
                             label="Your Name"
                             type="text"
@@ -183,15 +199,13 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
                             type="button"
                             onClick={handleSave}
                             disabled={!isChanged}
-                            className="w-full max-w-full sm:max-w-[190px] disabled:bg-slate-400 disabled:cursor-not-allowed disabled:text-gray-200 disabled:border-none py-2 md:py-[10px] rounded-[9px] md:rounded-2xl border-[#232323] border hover:bg-transparent bg-[#232323] hover:text-[#232323] text-white transition-all text-[15px] md:text-lg font-medium "
+                            className="w-full max-w-full sm:max-w-[190px] disabled:bg-slate-400 disabled:cursor-not-allowed disabled:text-gray-200 disabled:border-none py-2 md:py-[10px] rounded-[9px] md:rounded-2xl border-[#232323] border hover:bg-transparent bg-[#232323] hover:text-[#232323] text-white transition-all text-[15px] md:text-lg font-medium"
                         >
                             Save
                         </button>
                     </div>
                 </div>
             </form>
-
-            {/* Toast container to render the notifications */}
             <ToastContainer />
         </>
     );

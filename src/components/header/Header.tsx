@@ -3,9 +3,8 @@ import { ImCross } from "react-icons/im";
 import { useLocation } from "react-router-dom";
 import { getPageTitle } from "../../utils/functions/functions";
 
-
 interface HeaderProps {
-  setShowMenu: (show: boolean) => void; // Correct type for the setShowMenu prop
+  setShowMenu: (show: boolean) => void;
   showMenu: boolean;
 }
 
@@ -18,7 +17,6 @@ const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
   }
 
   return (
-
     <div className="w-full h-fit lg:h-[100px] lg:flex-row flex-col bg-white border-b border-[#E6EFF5] justify-between flex items-center px-6 py-6 gap-5 md:gap-0 md:px-10 md:py-5 ">
       <div className="w-full flex justify-between">
         <div className="flex lg:hidden">
@@ -30,10 +28,8 @@ const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M18 7C18 7.55228 17.5523 8 17 8L1 8C0.447716 8 -6.78525e-08 7.55228 -4.37114e-08 7C-1.95703e-08 6.44771 0.447716 6 1 6L17 6C17.5523 6 18 6.44772 18 7Z" fill="#343C6A" />
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M18 0.999998C18 1.55228 17.4801 2 16.8387 2L1.16129 2C0.519928 2 -6.78526e-08 1.55229 -4.37115e-08 1C-1.95704e-08 0.447719 0.519928 3.94468e-06 1.16129 3.7939e-06L16.8387 -5.07615e-08C17.4801 -2.61145e-07 18 0.447714 18 0.999998Z" fill="#343C6A" />
                 </svg>
-
             }
           </button>
-
         </div>
         <h5 className="text-[#343C6A] flex items-center text-center lg:mr-auto text-[28px] leading-[33px] font-bold"> {getPageTitle(location)}</h5>
         <div className=" hidden lg:flex items-center gap-[30px]">
@@ -48,7 +44,6 @@ const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
                 <path d="M19.3359 18.2109L14.7344 13.6094C15.875 12.2188 16.5625 10.4375 16.5625 8.49609C16.5625 4.04297 12.9492 0.429688 8.49609 0.429688C4.03906 0.429688 0.429688 4.04297 0.429688 8.49609C0.429688 12.9492 4.03906 16.5625 8.49609 16.5625C10.4375 16.5625 12.2148 15.8789 13.6055 14.7383L18.207 19.3359C18.5195 19.6484 19.0234 19.6484 19.3359 19.3359C19.6484 19.0273 19.6484 18.5195 19.3359 18.2109ZM8.49609 14.957C4.92969 14.957 2.03125 12.0586 2.03125 8.49609C2.03125 4.93359 4.92969 2.03125 8.49609 2.03125C12.0586 2.03125 14.9609 4.93359 14.9609 8.49609C14.9609 12.0586 12.0586 14.957 8.49609 14.957Z" fill="#718EBF" />
               </svg>
             </span>
-
           </div>
           <div className="w-[50px] h-[50px] min-w-[50px] bg-[#F5F7FA] rounded-full hidden lg:flex items-center justify-center hover:bg-[#343c6a] cursor-pointer">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,8 +87,6 @@ const Header: React.FC<HeaderProps> = ({ setShowMenu, showMenu }) => {
 
       </div>
     </div>
-
-
   );
 };
 

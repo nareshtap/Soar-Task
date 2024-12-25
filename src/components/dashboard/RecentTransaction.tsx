@@ -1,7 +1,6 @@
 import React from 'react';
 import { svgData } from '../../utils/svg'
 
-
 interface RequestTransactionData {
     amount: number,
     date: string,
@@ -15,7 +14,6 @@ interface RecentTransactionProps {
     requestTransaction: RequestTransactionData[]
 }
 const RecentTransaction: React.FC<RecentTransactionProps> = ({ requestTransaction }) => {
-
 
     return (
         <div className="bg-white p-[18px] md:p-6 rounded-3xl shadow-2xl h-full">
@@ -37,16 +35,9 @@ const RecentTransaction: React.FC<RecentTransactionProps> = ({ requestTransactio
                                 <p className={`font-bold ${transaction?.amount > 0 ? 'text-green-600' : 'text-red-600'} flex items-center`}>{transaction?.amount > 0 && "+$"} {transaction?.amount}</p>
                             </div>
                         </div>
-
                     ))
-
                 }
-
-
-
             </div>
-
-
         </div>
     );
 };

@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction } from 'react';
 import { NavLink } from 'react-router-dom';
 import { routes } from '../../utils/constant/constant';
 import Logo from '../../../public/assets/logo_icon.svg'
-import React from 'react';
 
 const SideBar = ({ showMenu, setShowMenu }: { showMenu: boolean, setShowMenu: Dispatch<SetStateAction<boolean>> }) => {
   return (
