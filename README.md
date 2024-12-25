@@ -2,6 +2,9 @@
 
 This is a frontend project built with React and Vite. It includes various libraries and tools for state management, routing, charts, and more. Below is an overview of the project setup and instructions for development.
 
+## Vercel Demo Link
+https://soar-task-gamma.vercel.app/
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -126,3 +129,9 @@ Previews the production build locally using Vite.
 - Responsive UI with TailwindCSS.
 - Toast notifications and tooltips for enhanced user experience.
 - Mock API setup with JSON Server.
+
+## Project Overview
+
+![SoarTask-gif](https://github.com/user-attachments/assets/33ba5055-7880-4c9f-af37-86277c582136)
+
+
