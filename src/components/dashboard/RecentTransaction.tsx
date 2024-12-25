@@ -18,11 +18,11 @@ const RecentTransaction: React.FC<RecentTransactionProps> = ({ requestTransactio
 
 
     return (
-        <div className="bg-white p-[18px] md:p-6  rounded-3xl shadow-2xl h-full">
-            <div className="flex flex-col gap-[10px]">
+        <div className="bg-white p-[18px] md:p-6 rounded-3xl shadow-2xl h-full">
+            <div className="flex flex-col gap-[10px] max-h-[190px] overflow-auto custom-scrollbar">
                 {
                     requestTransaction?.length > 0 && requestTransaction?.map((transaction) => (
-                        <div className='flex justify-between' key={transaction?.id}>
+                        <div className='flex justify-between pr-2' key={transaction?.id}>
 
                             <div className="flex flex-row items-center justify-start gap-4">
                                 <div className={`rounded-full border p-3 flex items-center justify-center ${svgData?.find((e) => e.name === transaction?.icon)?.color} text-yellow-600`}>

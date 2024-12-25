@@ -62,10 +62,11 @@ const WeeklyActivityChart: React.FC<ColumnChartProps> = ({ data }) => {
         },
         legend: {
             layout: "horizontal",
-            align: "center",
+            align: "right",
             verticalAlign: "top",
             itemStyle: {
                 fontWeight: "bold",
+                color: '#718EBF',
             },
         },
         credits: {

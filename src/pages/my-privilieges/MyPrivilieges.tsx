@@ -1,9 +1,11 @@
+import PageLayout from "../../components/layout/PageLayout";
+
 const MyPrivilieges = () => {
     return (
 
-        <div className="w-full h-16 bg-gray-200 flex items-center px-4 shadow">
+        <PageLayout title="My Privilieges">
             My Privilieges comming soon...
-        </div>
+        </PageLayout>
 
     );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import InputField from './InputField';
 import ProfilePicture from './ProfilePicture';
 import { User } from '../../../utils/types/users';
@@ -12,6 +12,15 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
     const [formData, setFormData] = useState(userData);
     const [profileImage, setProfileImage] = useState(userData.profilePicture);
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [isChanged, setIsChanged] = useState<boolean>(false);
+    const initialFormData = useRef(userData);
+
+    useEffect(() => {
+        const isFormChanged = Object.keys(formData).some(
+            (key) => formData[key as keyof User] !== initialFormData.current[key as keyof User]
+        );
+        setIsChanged(isFormChanged);
+    }, [formData]);
 
     const validate = (): boolean => {
         const newErrors: Record<string, string> = {};
@@ -26,11 +35,11 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
                 'Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.';
         }
 
-        if (!formData.name) {
+        if (!formData.name.trim()) {
             newErrors.name = 'Name is required.';
         }
 
-        if (!formData.username) {
+        if (!formData.username.trim()) {
             newErrors.username = 'Username is required.';
         }
 
@@ -54,15 +63,9 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
 
     const handleSave = () => {
         if (validate()) {
-            console.log('Form Data:', formData);
-            console.log('Profile Image:', profileImage);
-
             toast.success('Profile updated successfully!', {
-
                 autoClose: 1000,
             });
-        } else {
-            console.log('Validation failed:', errors);
         }
     };
 
@@ -179,7 +182,8 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ userData }) => {
                         <button
                             type="button"
                             onClick={handleSave}
-                            className="w-full max-w-full sm:max-w-[190px] py-2 md:py-[10px] rounded-[9px] md:rounded-2xl border-[#232323] border hover:bg-transparent bg-[#232323] hover:text-[#232323] text-white transition-all text-[15px] md:text-lg font-medium "
+                            disabled={!isChanged}
+                            className="w-full max-w-full sm:max-w-[190px] disabled:bg-slate-400 disabled:cursor-not-allowed disabled:text-gray-200 disabled:border-none py-2 md:py-[10px] rounded-[9px] md:rounded-2xl border-[#232323] border hover:bg-transparent bg-[#232323] hover:text-[#232323] text-white transition-all text-[15px] md:text-lg font-medium "
                         >
                             Save
                         </button>

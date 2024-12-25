@@ -37,7 +37,7 @@ const Dashboard = () => {
                 <div className='flex flex-col gap-[20px] col-span-1 lg:col-span-2   '>
                     <div className='flex justify-between items-center'>
                         <h5 className='text-[#343C6A] text-[22px] leading-[28px] font-semibold'>My Cards</h5>
-                        <h6 className='text-[#343C6A] text-base font-semibold'>See All</h6>
+                        <h6 className='text-[#343C6A] text-base font-semibold cursor-pointer'>See All</h6>
                     </div>
                     <div className='flex gap-5 md:gap-[30px] overflow-auto'>
                         <Card balance='5756' cardHolder='Eddy Cusuma' validThru='12/22' cardNumber='3778 **** **** 1234' />

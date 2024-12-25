@@ -17,7 +17,7 @@ const BalanceHistoryChart: React.FC<LineChartProps> = ({ data }) => {
 
     const options = {
         chart: {
-            type: 'area',
+            type: 'areaspline',
         },
         title: {
             text: '',
