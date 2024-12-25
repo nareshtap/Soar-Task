@@ -27,7 +27,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({ image, onImageChange })
                 </span>
                 <input
                     type="file"
-                    accept="image/*"
+                    accept="image/png, image/jpeg, image/jpg"
                     className="hidden"
                     onChange={handleFileChange}
                 />
